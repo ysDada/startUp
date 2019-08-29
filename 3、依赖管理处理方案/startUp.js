@@ -286,12 +286,12 @@
             Module.use(list, callback, data.cwd + "_use_" + cid())
         })
     }
-
-    var REQUIRE_RE = /\brequire\s*\(\s*(["'])(.+?)\1\s*\)/g
+    
+    var REQUIRE_RE = /((?<!\/\*.*)(?<!\/\/.*))\brequire\s*\(\s*(["'])(.+?)\2\s*\)(?!\*\/)/g
 
     function parseDependencies(code) {
         var ret = []
-        code.replace(REQUIRE_RE, function(m, m1, m2) {
+        code.replace(REQUIRE_RE, function(m, m1, m2, m3, m4) {
             if(m2) ret.push(m2)
         })
         return ret
