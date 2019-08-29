@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
-    var sex = 123
-    return {
-        sex
-    }
+    /* require("c.js")  */
+    // require("d.js")
+    var age = "30";
+    var b = require("b.js'");
+    exports.age = age;
 });
